@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ParamProbe — Parameter Discovery & Curl Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <h1>ParamProbe</h1>
+    <p class="tagline">Paste a URL and generate parameter probes & ready-to-run curl commands. Run the commands in your local lab / AttackBox.</p>
+
+    <section class="card">
+      <label>Target URL (include protocol)</label>
+      <input id="url" placeholder="https://example.com/path" />
+
+      <label>Comma-separated params to try (or leave default)</label>
+      <input id="params" placeholder="debug,admin,test,show,view,id,mode,redirect" />
+
+      <label>Payloads (one per line)</label>
+      <textarea id="payloads" rows="4">1
+true
+admin
+../
+%2e%2e%2f
+</textarea>
+
+      <div class="controls">
+        <button id="gen">Generate</button>
+        <button id="copy">Copy All</button>
+        <button id="download">Download .sh</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Generated Commands</h2>
+      <pre id="out" class="output">(no commands yet — click Generate)</pre>
+    </section>
+
+    <footer>
+      <small>Security: ParamProbe generates commands only. <strong>Do not run against targets without authorization.</strong> Use your AttackBox or local lab.</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
